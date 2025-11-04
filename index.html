@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualizador de Cotações</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>ACOMPANHAMENTO DE CRIPTOMOEDAS</h1>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Cotações (Top 10)</h2>
+      <div id="lista-moedas" class="coin-list-container">
+        <p>Carregando dados...</p>
+      </div>
+    </section>
+
+    <section class="card hidden-mobile">
+      <h2>Meus Favoritos</h2>
+      <div id="lista-favoritos" class="favorite-list-container">
+        <p>Adicione moedas aos seus Favoritos para vê-las aqui.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal do gráfico -->
+  <div id="modal-grafico" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="close-btn" id="fechar-modal" aria-label="Fechar gráfico">&times;</button>
+      <h3 id="titulo-grafico">Histórico de Preços</h3>
+
+      <!-- 🔹 Botões de período -->
+      <div class="period-buttons">
+        <button class="period-btn ativo" data-days="1">1D</button>
+        <button class="period-btn" data-days="7">7D</button>
+        <button class="period-btn" data-days="max">MAX</button>
+      </div>
+
+      <div class="chart-container">
+        <canvas id="grafico-historico"></canvas>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

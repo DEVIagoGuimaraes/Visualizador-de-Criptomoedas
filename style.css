@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image: url(./assets/back.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #191818;
+  color: #dfd7d7;
+}
+
+header {
+  text-align: center;
+  padding: 12px 0 28px;
+  border-bottom: 1px solid #dfd7d7;
+  margin-bottom: 22px;
+}
+
+main {
+  display: flex;
+  gap: 28px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.card {
+  flex: 1;
+  background-color: #1f1f1fd5;
+  padding: 26px;
+  border-radius: 12px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.55);
+  min-width: 300px;
+}
+
+.coin-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.coin {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: #2b2b2b;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.22s ease, border 0.3s ease-in-out;
+  border: 2px solid transparent;
+}
+
+.coin:hover {
+  background-color: #3a3a3a;
+  transform: translateY(-1.5px);
+}
+
+.coin img {
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.coin span:nth-child(2) {
+  flex-grow: 1;
+  font-weight: 600;
+}
+
+.coin span:nth-child(3) {
+  font-weight: 500;
+  margin-right: 18px;
+}
+
+.fav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  margin-left: 8px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.22s ease;
+}
+
+.fav-btn img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.2));
+  transition: all 0.2s ease;
+}
+
+.fav-btn:hover {
+  transform: scale(1.1);
+}
+
+.favorite-list-container .coin {
+  border: 0.7px solid #1f33e5;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.72);
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #1f1f1f;
+  padding: 22px;
+  border-radius: 11px;
+  width: 90%;
+  max-width: 710px;
+  position: relative;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.78em;
+  color: #e0e0e0;
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #212ad4;
+}
+
+/* 🔹 Estilo dos botões de período */
+.period-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.period-btn {
+  background-color: #2b2b2b;
+  color: #00ff88;
+  border: 1px solid #00ff88;
+  border-radius: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.period-btn:hover {
+  background-color: #00ff88;
+  color: #1f1f1f;
+}
+
+.period-btn.ativo {
+  background-color: #00ff88;
+  color: #1f1f1f;
+}
+
+.chart-container {
+  height: 400px;
+  background-color: #2b2b2b;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+  }
+  .card {
+    padding: 15px;
+  }
+  .coin {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+  .hidden-mobile {
+    display: none;
+  }
+}
+
+/* Destaque da moeda com maior aumento */
+.moeda-destaque {
+  border: 2px solid #00ff88;
+  animation: pulsar 1.5s infinite;
+}
+
+@keyframes pulsar {
+  0% { box-shadow: 0 0 5px #00ff88; }
+  50% { box-shadow: 0 0 20px #00ff88; }
+  100% { box-shadow: 0 0 5px #00ff88; }
+}
